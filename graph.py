@@ -94,15 +94,15 @@ class digraph(object):
 
 """ -------------------------------- """
 
-g = digraph()
+# g = digraph()
 
-g.addnode(1)
-g.addnode(2)
-g.addnode(3)
-g.addnode(4)
+# g.addnode(1)
+# g.addnode(2)
+# g.addnode(3)
+# g.addnode(4)
 
-g.show()
+# g.show()
 
-g.delnode(3)
+# g.delnode(3)
 
-g.show()
+# g.show()
