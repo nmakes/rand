@@ -6,6 +6,17 @@
 	Copyright (c) 2016 Naveen Venkat
 """
 
+
+"""
+==========
+The DiNode
+==========
+
+- An undirected graph, with weights for each edge
+- TODO: Document this
+
+"""
+
 class dinode(object):
 	
 	# Ourward and Inward edges
@@ -84,7 +95,8 @@ class digraph(object):
 
 	def getSCC(self):
 		for i in self.nodes:
-
+			# TODO
+			pass
 
 	def show(self):
 		print '[',
@@ -92,17 +104,92 @@ class digraph(object):
 			print str(i.index),
 		print ']'
 
-""" -------------------------------- """
+"""
+==================
+The Weighted Graph
+==================
 
-# g = digraph()
+- An undirected graph, with weights for each edge
+- TODO: Document this
 
-# g.addnode(1)
-# g.addnode(2)
-# g.addnode(3)
-# g.addnode(4)
+"""
 
-# g.show()
+class edge(object):
 
-# g.delnode(3)
+	def __init__(self, v1, v2, w):
+		self.v1 = v1
+		self.v2 = v2
+		self.w = w
 
-# g.show()
+	def equals(self, e2):
+		if ((self.v1==e2.v1) and (self.v2==e2.v2) and (self.w==e2.w)):
+			return True
+		else:
+			return False
+
+	def __str__(self):
+		return str(self.v1) + ' <--' + str(self.w) + '--> ' + str(self.v2)
+
+#---
+
+class wgraph(object):
+
+	def __init__(self):
+		self.E = []
+		self.V = []
+
+	def addV(self, vertex):
+		if vertex not in self.V:
+			self.V.append(vertex)
+
+	def delV(self, vertex):
+		if vertex in self.V:
+			self.V.remove(vertex)
+
+	def addE(self, v1, v2, w):
+		temp = edge(v1,v2,w)
+		for i in self.E:
+			if temp.equals(i):
+				return
+		self.E.append(temp)
+
+	def delE(self, v1, v2, w):
+		temp = edge(v1,v2,w)
+		c=0
+		for i in self.E:
+			if temp.equals(i):
+				self.E.pop(c)
+			c+=1
+
+	def __str__(self):
+		return "TODO: MAKE GRAPH REPRESENTATION"
+
+"""
+# Digraph Code
+
+g = digraph()
+
+g.addnode(1)
+g.addnode(2)
+g.addnode(3)
+g.addnode(4)
+
+g.show()
+
+g.delnode(3)
+
+g.show()
+"""
+
+a = edge(2,4,1)
+b = edge(2,4,2)
+
+g = wgraph()
+
+g.addV(1)
+g.addV(2)
+g.addV(3)
+g.addV(4)
+g.addV(5)
+
+print g
